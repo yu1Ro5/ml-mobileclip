@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Selector</title>
+    <style>
+        .image-container {
+            display: inline-block;
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/submit">
+        {% for image in image_list %}
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/' + image) }}" width="200">
+            <input type="radio" name="image" value="{{ image }}">
+        </div>
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
